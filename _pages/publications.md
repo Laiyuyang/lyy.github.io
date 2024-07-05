@@ -6,15 +6,13 @@ sitemap: false
 permalink: /publications/
 ---
 
-
 # Publications
 
-
-{% for publi in site.data.publist %}
-
-  {{ publi.title }},
-  <em>{{ publi.authors }} </em><br />
+{% assign total = site.data.publist.size %}
+{% for publi in site.data.publist reversed %}
+  {{ total - forloop.index0 + 1 }}. {{ publi.title }},
+  <em>{{ publi.authors }}</em><br />
   <a href="{{ publi.link.url }}">{{ publi.link.display }}</a>
-  [(pdf)]({{ site.baseurl }}/downloads/{{ publi.link.doc }})
-
+  [(pdf)]({{ site.baseurl }}/downloads/{{ publi.link.doc }})<br /><br />
 {% endfor %}
+
