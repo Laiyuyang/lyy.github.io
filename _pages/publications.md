@@ -9,12 +9,15 @@ permalink: /publications/
 # Publications
 
 {% assign total = site.data.publist.size %}
+{% assign counter = total %}
 {% for publi in site.data.publist %}
-  {{ total - forloop.index }}. {{ publi.title }},
+  {{ counter }}. {{ publi.title }},
   <em>{{ publi.authors }}</em><br />
   <a href="{{ publi.link.url }}">{{ publi.link.display }}</a>
   [(pdf)]({{ site.baseurl }}/downloads/{{ publi.link.doc }})<br /><br />
+  {% assign counter = counter | minus: 1 %}
 {% endfor %}
+
 
 
 
